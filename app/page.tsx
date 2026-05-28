@@ -46,7 +46,7 @@ ctx.fillText("ALA • Resilience Certificate", canvas.width / 2, 60);
   link.href = canvas.toDataURL();
   link.click();
 };
-const [paymentMode, setPaymentmode] = useState("traditional");
+const [paymentMode, setpaymentmode] = useState("traditional");
 const [cryptoType, setCryptoType] = useState("USDT");
 
   const bikes = [
@@ -1045,7 +1045,7 @@ duration-300
 
     {/* TRADICIONAL */}
     <button
-      onClick={() => setPaymentmode("traditional")}
+      onClick={() => setpaymentmode("traditional")}
       className={`
       w-full
       rounded-2xl
@@ -1083,11 +1083,12 @@ duration-300
 
     {/* HIBRIDO */}
     <button
-      onClick={() => setPaymentMode("hybrid")}
+      onClick={() => setpaymentmode("hybrid")}
       className={`
       w-full
       rounded-2xl
       p-5
+
       text-left
       border
       transition-all
@@ -1127,7 +1128,7 @@ duration-300
 
     {/* DIGITAL */}
     <button
-      onClick={() => setPaymentMode("crypto")}
+      onClick={() => setpaymentmode("crypto")}
       className={`
       w-full
       rounded-2xl
