@@ -1045,7 +1045,7 @@ duration-300
 
     {/* TRADICIONAL */}
     <button
-      onClick={() => setPaymentMode("traditional")}
+      onClick={() => setPaymentmode("traditional")}
       className={`
       w-full
       rounded-2xl
