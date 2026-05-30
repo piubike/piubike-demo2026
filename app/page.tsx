@@ -993,7 +993,126 @@ duration-300
     <p className="text-sm text-zinc-500 mb-5">
   Pago seguro • Alvarez Bicycle
 </p>
+<div
+  className="
+  bg-[var(--bg-card)]
+  border border-white/5
+  rounded-3xl
+  overflow-hidden
+  mb-6
+  "
+>
 
+  <img
+    src={selected?.image}
+    className="
+    w-full
+    h-56
+    object-cover
+    "
+  />
+
+  <div className="p-5">
+
+    <h3 className="text-2xl font-semibold">
+      {selected?.name}
+    </h3>
+
+    <p className="text-zinc-400 mt-1">
+      Talla recomendada: {getSize()}
+    </p>
+
+  </div>
+
+</div>
+<div
+  className="
+  bg-[var(--bg-card)]
+  border border-white/5
+  rounded-3xl
+  p-5
+  mb-6
+  "
+>
+
+  <h3 className="text-lg font-semibold mb-4">
+    Resumen de compra
+  </h3>
+
+  <div className="space-y-4">
+
+    <div className="flex justify-between">
+      <span className="text-zinc-400">
+        Modelo
+      </span>
+
+      <span>
+        {selected?.name}
+      </span>
+    </div>
+
+    <div className="flex justify-between">
+      <span className="text-zinc-400">
+        Talla
+      </span>
+
+      <span>
+        {getSize()}
+      </span>
+    </div>
+
+    <div className="flex justify-between">
+      <span className="text-zinc-400">
+        Garantía
+      </span>
+
+      <span>
+        5 años
+      </span>
+    </div>
+
+    <div className="flex justify-between">
+      <span className="text-zinc-400">
+        Envío
+      </span>
+
+      <span>
+        Gratuito
+      </span>
+    </div>
+
+  </div>
+
+</div>
+<div
+  className="
+  bg-[var(--bg-card)]
+  border border-white/5
+  rounded-3xl
+  p-5
+  mb-6
+  "
+>
+
+  <h3 className="text-lg font-semibold mb-4">
+    Lo que incluye tu compra
+  </h3>
+
+  <div className="space-y-3 text-zinc-300">
+
+    <p>✓ Bicicleta ensamblada y revisada</p>
+
+    <p>✓ Garantía oficial Alvarez Bicycle</p>
+
+    <p>✓ Soporte técnico especializado</p>
+
+    <p>✓ Acceso a ALA Rewards</p>
+
+    <p>✓ Envío gratuito</p>
+
+  </div>
+
+</div>
     {/* CARD */}
     <div
       className="
