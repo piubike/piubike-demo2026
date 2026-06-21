@@ -108,7 +108,7 @@ const [cryptoType, setCryptoType] = useState("USDT");
 
   {
   category: "Ruta",
-  name: "CORDOBA START",
+  name: "CORDOBA ",
   desc: "Ruta ligera y cómoda",
   image: "https://images.unsplash.com/photo-1485965120184-e220f721d03e",
 },
@@ -1067,7 +1067,7 @@ duration-300
       </span>
 
       <span>
-        5 años
+        3 años
       </span>
     </div>
 
