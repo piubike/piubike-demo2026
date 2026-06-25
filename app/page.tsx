@@ -1233,7 +1233,7 @@ duration-300
 </div>
 
           <p className="text-sm text-zinc-400 mt-1">
-            Tarjeta + Digital Assets
+            Tarjeta + Criptomonedas
           </p>
         </div>
 
@@ -1245,105 +1245,14 @@ duration-300
 
     </button>
 
-    {/* DIGITAL */}
-    <button
-      onClick={() => setpaymentmode("crypto")}
-      className={`
-      w-full
-      rounded-2xl
-      p-5
-      text-left
-      border
-      transition-all
-      ${
-        paymentMode === "crypto"
-          ? "border-[var(--accent-earth)] bg-[var(--bg-main)]"
-          : "border-white/5 bg-[var(--bg-main)]"
-      }
-      `}
-    >
-
-      <div className="flex justify-between items-center">
-
-        <div>
-          <p className="font-semibold">
-            🪙 Pago digital
-          </p>
-
-          <p className="text-sm text-zinc-400 mt-1">
-            Wallet externa · Crypto
-          </p>
-        </div>
-
-        <span className="text-xl">
-          {paymentMode === "crypto" ? "✓" : ""}
-        </span>
-
-      </div>
-
-    </button>
 
   </div>
 
 </div>
 
-      {/* CRYPTO */}
-      {type !== "pro" && paymentMode === "hybrid" && (
-        <div className="mb-6">
-
-          <p className="mb-4 font-medium">
-            🪙 Pago con criptomonedas
-          </p>
-          <div className="flex gap-3 mb-4 text-3xl">
-  <span>₿</span>
-  <span>Ξ</span>
-  <span>◈</span>
-</div>
-
-          <div className="grid gap-3">
-
-            {/* CONNECT WALLET */}
-<button
-  onClick={() => setWalletConnected(true)}
-  className="
-  w-full
-  bg-[var(--bg-card)]
-border border-white/10
-  py-4
-  rounded-2xl
-  font-medium
-  hover:opacity-90
-  transition-all
-  "
->
-  {walletConnected
-    ? "✅ Wallet conectada"
-    : "🔗 Conectar Wallet"}
-</button>
-
-            {/* BUY CRYPTO */}
-            <button
-              className="
-              w-full
-              bg-[var(--bg-main)]
-              border border-white/10
-              py-4
-              rounded-2xl
-              font-medium
-              hover:border-white/20
-              transition-all
-              "
-            >
-              💸 Comprar Criptomonedas
-            </button>
-
-          </div>
-
-        </div>
-      )}
 
       {/* HYBRID PAYMENT */}
-{type !== "pro" && (
+{type !== "pro" && paymentMode === "hybrid" && (
   <div
     className="
     bg-[var(--bg-main)]
@@ -1354,14 +1263,21 @@ border border-white/10
     "
   >
 
-    <p className="font-medium mb-4">
-      ⚡ Pago híbrido
-    </p>
-    {/* PAYMENT TYPE */}
+    <div className="mb-6">
 
-    <p className="text-sm text-zinc-400 mb-5">
-      Divide tu compra entre tarjeta y criptomonedas.
-    </p>
+  <p className="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-2">
+    Hybrid Payment
+  </p>
+
+  <h3 className="text-2xl font-semibold tracking-tight mb-2">
+    Combina múltiples métodos de pago
+  </h3>
+
+  <p className="text-zinc-400">
+    Utiliza tarjeta, activos digitales y ALA Rewards en una sola transacción.
+  </p>
+
+</div>
 
     {/* RESUMEN */}
     <div
@@ -1382,11 +1298,11 @@ border border-white/10
 
   <div>
     <p className="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-1">
-      Payment Split
+      Pago Hibrido
     </p>
 
     <p className="text-lg font-semibold tracking-tight">
-      Distribución del pago
+      Combina tarjeta y criptomonedas en una sola compra
     </p>
   </div>
 
@@ -1407,7 +1323,7 @@ border border-white/10
 
   <div>
     <p className="font-medium">
-       Card Payment
+       Tarjeta
     </p>
 
     <p className="text-sm text-zinc-500">
@@ -1415,27 +1331,6 @@ border border-white/10
     </p>
   </div>
 
-  {fiatAmount > 0 && (
-    <button
-      onClick={() => setView("experience")}
-     className="
-bg-[var(--accent-earth)]
-text-black
-px-5
-py-2.5
-rounded-2xl
-text-sm
-font-semibold
-tracking-tight
-shadow-[0_0_25px_rgba(207,168,107,0.25)]
-hover:scale-[1.02]
-transition-all
-duration-300
-"
-    >
-      Pagar
-    </button>
-  )}
 
 </div>
 
@@ -1444,7 +1339,7 @@ duration-300
 
   <div>
     <p className="font-medium">
-      Digital Assets
+      Criptomonedas
     </p>
 
     <p className="text-sm text-zinc-500">
@@ -1485,7 +1380,7 @@ border-white/5
 
     <div>
       <p className="font-medium">
-        ALA Rewards
+        ALA Puntos Recompensa
       </p>
 
       <p className="text-sm text-zinc-500">
@@ -1512,7 +1407,49 @@ border-white/5
 </div>
 
     </div>
+{/* BUY CRYPTO */}
 
+<div
+  className="
+  mt-5
+  pt-5
+  border-t
+  border-white/5
+  "
+>
+
+  <div className="flex justify-between items-center">
+
+    <div>
+
+      <p className="font-medium">
+        Comprar Cripto
+      </p>
+
+      <p className="text-sm text-zinc-500">
+        Próximamente
+      </p>
+
+    </div>
+
+    <button
+      disabled
+      className="
+      opacity-50
+      bg-[var(--bg-card)]
+      border border-white/10
+      px-4
+      py-2
+      rounded-xl
+      text-sm
+      "
+    >
+      Próximamente
+    </button>
+
+  </div>
+
+</div>
     {/* SLIDER */}
     <div className="mb-5">
 
@@ -1520,7 +1457,7 @@ border-white/5
 
   <div>
     <p className="text-xs text-zinc-500 uppercase tracking-[0.2em]">
-      Card
+      Tarjeta
     </p>
 
     <p className="text-lg font-semibold">
@@ -1529,12 +1466,12 @@ border-white/5
   </div>
 
   <div className="text-zinc-600 text-sm">
-    Split
+    Distribucion de pago
   </div>
 
   <div className="text-right">
     <p className="text-xs text-zinc-500 uppercase tracking-[0.2em]">
-      Digital
+      Criptomonedas
     </p>
 
     <p className="text-lg font-semibold">
@@ -1563,7 +1500,9 @@ overflow-hidden
 accent-[var(--accent-earth)]
 "
       />
-
+<p className="mt-3 text-xs text-zinc-500 text-center">
+  El importe se dividirá automáticamente entre tu tarjeta y tus criptomonedas.
+</p>
     </div>
 
   
