@@ -1043,7 +1043,7 @@ duration-300
 
     <div className="flex justify-between">
       <span className="text-zinc-400">
-        Modelo
+        Modelo 2
       </span>
 
       <span>
