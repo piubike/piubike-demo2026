@@ -1,0 +1,83 @@
+export const bikes = [
+  {
+    category: "Mountain",
+    name: "ATACAMA START",
+    desc: "Tu entrada al MTB premium",
+    image: "https://images.unsplash.com/photo-1541625602330-2277a4c46182",
+  },
+  {
+    category: "Mountain",
+    name: "ATACAMA RACER",
+    desc: "Control absoluto en montaña",
+    image: "https://images.unsplash.com/photo-1511994298241-608e28f14fde",
+  },
+  {
+    category: "Mountain",
+    name: "ATACAMA TEAM",
+    desc: "Rendimiento profesional XC",
+    image: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8",
+  },
+  {
+    category: "Mountain",
+    name: "PATAGONIA START",
+    desc: "Control y estabilidad",
+    image: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91",
+  },
+  {
+    category: "Mountain",
+    name: "PATAGONIA TEAM",
+    desc: "Geometría avanzada de competición",
+    image: "https://images.unsplash.com/photo-1523740856324-f2ce89135981",
+  },
+  {
+    category: "Gravel",
+    name: "ACONCAGUA START",
+    desc: "Gravel equilibrada para aventura",
+    image: "https://images.unsplash.com/photo-1517649763962-0c623066013b",
+  },
+  {
+    category: "Gravel",
+    name: "ACONCAGUA RACER",
+    desc: "Velocidad y rendimiento gravel",
+    image: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8",
+  },
+  {
+    category: "Gravel",
+    name: "ACONCAGUA TEAM",
+    desc: "Carbon performance gravel",
+    image: "https://images.unsplash.com/photo-1541625602330-2277a4c46182",
+  },
+  {
+    category: "Ruta",
+    name: "CORDOBA ",
+    desc: "Ruta ligera y cómoda",
+    image: "https://images.unsplash.com/photo-1485965120184-e220f721d03e",
+  },
+  {
+    category: "Resilience",
+    name: "ALA RESILIENCE",
+    desc: "AI Bike con chip integrado y sistema inteligente",
+    price: 12900,
+    image: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    category: "Ruta",
+    name: "CORDOBA RACER",
+    desc: "Máxima velocidad en asfalto",
+    price: 5200,
+    image: "https://images.unsplash.com/photo-1558980394-34764db825ba",
+  },
+  {
+    category: "Ruta",
+    name: "CORDOBA TEAM",
+    desc: "Carbon performance road",
+    price: 6900,
+    image: "https://images.unsplash.com/photo-1508979828023-99e4609a7c5e",
+  },
+  {
+    category: "E-Bike",
+    name: "HANGAROA E BIKE",
+    desc: "Potencia eléctrica inteligente",
+    image: "https://images.unsplash.com/photo-1571068316344-75bc76f77890",
+  },
+];
