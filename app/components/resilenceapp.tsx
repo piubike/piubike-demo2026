@@ -2,6 +2,24 @@
 
 import { useState } from "react";
 
+import {
+  Bike,
+  Ticket,
+  User,
+  Cpu,
+  MapPinned,
+  BarChart3,
+  Crown,
+  Gauge,
+  RotateCw,
+  Ruler,
+  Sparkles,
+  TrendingUp,
+  BrainCircuit,
+  Cloud,
+  ArrowLeft,
+} from "lucide-react";
+
 interface resilenceappProps {
   selected: any;
   getSize: () => string;
@@ -9,130 +27,418 @@ interface resilenceappProps {
   onActivateProPayment: () => void;
 }
 
-// 👑 ¡CON "R" MAYÚSCULA PARA REAVIVAR LA PANTALLA!
 export default function resilenceApp({
   selected,
   getSize,
   onBackHome,
   onActivateProPayment,
 }: resilenceappProps) {
-  // Manejo interno de sub-vistas: "menu", "stats", "pro"
   const [subView, setSubView] = useState("menu");
 
   return (
     <div className="min-h-screen">
-      {/* --- VISTA 1: MENÚ PRINCIPAL DE LA APP --- */}
+
+      {/* ---------------- MENU ---------------- */}
+
       {subView === "menu" && (
         <div className="text-center">
-          <h2 className="text-2xl mb-4">🚴 Mi App resilence</h2>
+
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <Bike
+              className="w-8 h-8 text-[var(--accent-earth)]"
+              strokeWidth={1.8}
+            />
+            <h2 className="text-3xl font-semibold tracking-tight">
+              Mi App Resilience
+            </h2>
+          </div>
 
           {selected ? (
-            /* SI EL USUARIO YA ELIGIÓ O TIENE UNA BICI VINCULADA */
-            <div className="bg-[var(--bg-main)] text-white p-4 rounded-xl mb-4 text-left border border-white/5">
-              <p className="text-lg font-bold mb-2">🎟 Tu NFT Activo</p>
-              <p><b>Modelo:</b> {selected.name}</p>
-              <p><b>Talla:</b> {getSize()}</p>
-              <p><b>Fecha:</b> {new Date().toLocaleDateString()}</p>
+
+            <div className="bg-[var(--bg-main)] border border-white/5 rounded-3xl p-6 mb-6 text-left">
+
+              <div className="flex items-center gap-3 mb-5">
+                <Ticket
+                  className="w-6 h-6 text-[var(--accent-earth)]"
+                  strokeWidth={1.8}
+                />
+                <h3 className="text-xl font-semibold">
+                  Tu NFT Activo
+                </h3>
+              </div>
+
+              <div className="space-y-3">
+
+                <div className="flex justify-between">
+                  <span className="text-zinc-400">
+                    Modelo
+                  </span>
+
+                  <span className="font-medium">
+                    {selected.name}
+                  </span>
+                </div>
+
+                <div className="flex justify-between">
+                  <span className="text-zinc-400">
+                    Talla
+                  </span>
+
+                  <span className="font-medium">
+                    {getSize()}
+                  </span>
+                </div>
+
+                <div className="flex justify-between">
+                  <span className="text-zinc-400">
+                    Fecha
+                  </span>
+
+                  <span className="font-medium">
+                    {new Date().toLocaleDateString()}
+                  </span>
+                </div>
+
+              </div>
+
             </div>
+
           ) : (
-            /* SI EL USUARIO ENTRÓ DIRECTO DESDE EL HOME (ESTADO INVITADO) */
-            <div className="bg-zinc-900/50 text-white p-5 rounded-xl mb-4 text-center border border-dashed border-white/10">
-              <p className="text-xl mb-1">👤 Cuenta de Invitado</p>
-              <p className="text-sm text-zinc-400 mb-3">No tienes ninguna bicicleta vinculada todavía.</p>
-              <span className="inline-block bg-white/5 text-xs text-zinc-300 px-3 py-1 rounded-full">
-                Modo Demostración
+
+            <div className="bg-zinc-900/40 border border-dashed border-white/10 rounded-3xl p-6 mb-6">
+
+              <div className="flex items-center justify-center gap-3 mb-3">
+
+                <User
+                  className="w-7 h-7 text-[var(--accent-earth)]"
+                  strokeWidth={1.8}
+                />
+
+                <h3 className="text-xl font-semibold">
+                  Cuenta de Invitado
+                </h3>
+
+              </div>
+
+              <p className="text-zinc-400 mb-4">
+                No tienes ninguna bicicleta vinculada todavía.
+              </p>
+
+              <span className="inline-flex bg-white/5 px-4 py-2 rounded-full text-xs tracking-wider uppercase text-zinc-300">
+                Modo demostración
               </span>
+
             </div>
+
           )}
 
-          <div className="grid gap-3">
-            <button className="bg-[var(--bg-card)] py-3 rounded-2xl border border-white/5">
-              🔗 Conectar chip
+          <div className="grid gap-4">
+
+            <button className="bg-[var(--bg-card)] border border-white/5 rounded-2xl py-4 px-5 flex items-center justify-center gap-3 hover:border-[var(--accent-earth)] transition-all">
+
+              <Cpu
+                className="w-5 h-5 text-[var(--accent-earth)]"
+                strokeWidth={1.8}
+              />
+
+              <span>
+                Conectar Chip
+              </span>
+
             </button>
 
-            <button className="bg-[var(--bg-card)] py-3 rounded-2xl border border-white/5">
-              📍 Mi recorrido
+            <button className="bg-[var(--bg-card)] border border-white/5 rounded-2xl py-4 px-5 flex items-center justify-center gap-3 hover:border-[var(--accent-earth)] transition-all">
+
+              <MapPinned
+                className="w-5 h-5 text-[var(--accent-earth)]"
+                strokeWidth={1.8}
+              />
+
+              <span>
+                Mi Recorrido
+              </span>
+
             </button>
 
             <button
               onClick={() => setSubView("stats")}
-              className="bg-[var(--accent-earth)] text-black py-3 rounded-2xl font-medium shadow-[0_0_30px_rgba(207,168,107,0.25)]"
+              className="bg-[var(--accent-earth)] text-black rounded-2xl py-4 px-5 flex items-center justify-center gap-3 font-medium shadow-[0_0_30px_rgba(207,168,107,0.25)]"
             >
-              📊 Resilence
+
+              <BarChart3
+                className="w-5 h-5"
+                strokeWidth={2}
+              />
+
+              <span>
+                Resilience Analytics
+              </span>
+
             </button>
+
           </div>
 
           <button
             onClick={() => setSubView("pro")}
-            className="w-full bg-gradient-to-r from-indigo-600 to-violet-600 text-white py-3 rounded-2xl mt-8 font-medium"
+            className="w-full mt-8 rounded-2xl py-4 bg-gradient-to-r from-[#8B6B32] via-[var(--accent-earth)] to-[#F0D7A1] text-black font-semibold flex items-center justify-center gap-3"
           >
-            Activar Resilence PRO
+
+            <Crown
+              className="w-5 h-5"
+              strokeWidth={2}
+            />
+
+            Activar Resilience PRO
+
           </button>
 
           <button
             onClick={onBackHome}
-            className="mt-6 text-sm text-zinc-400 block w-full text-center"
+            className="mt-8 flex items-center justify-center gap-2 w-full text-zinc-400 hover:text-white transition-colors"
           >
+
+            <ArrowLeft
+              className="w-4 h-4"
+              strokeWidth={1.8}
+            />
+
             Volver al Inicio
+
           </button>
+
         </div>
       )}
 
-      {/* --- VISTA 2: ESTADÍSTICAS DEL CHIP --- */}
+            {/* ---------------- STATS ---------------- */}
+
       {subView === "stats" && (
         <div className="text-center">
-          <h2 className="text-2xl mb-4">📊 Datos resilence</h2>
 
-          <div className="bg-[var(--bg-card)] p-4 rounded-2xl text-left border border-white/5">
-            <p className="mb-2">⚡ Velocidad: 32 km/h</p>
-            <p className="mb-2">🔄 Cadencia: 85 rpm</p>
-            <p className="mb-2">📏 Altura sillín: 74 cm</p>
+          <div className="flex items-center justify-center gap-3 mb-8">
 
-            <div className="mt-4 pt-3 border-t border-white/5 text-sm text-zinc-400">
-              💡 Recomendación:<br />
-              Subir sillín +1 cm para mejor eficiencia
+            <BarChart3
+              className="w-7 h-7 text-[var(--accent-earth)]"
+              strokeWidth={1.8}
+            />
+
+            <h2 className="text-3xl font-semibold tracking-tight">
+              Datos Resilience
+            </h2>
+
+          </div>
+
+          <div className="bg-[var(--bg-card)] rounded-3xl border border-white/5 p-6 text-left">
+
+            <div className="flex items-center justify-between py-3 border-b border-white/5">
+
+              <div className="flex items-center gap-3">
+
+                <Gauge
+                  className="w-5 h-5 text-[var(--accent-earth)]"
+                  strokeWidth={1.8}
+                />
+
+                <span>Velocidad</span>
+
+              </div>
+
+              <span className="font-medium">
+                32 km/h
+              </span>
+
             </div>
+
+            <div className="flex items-center justify-between py-3 border-b border-white/5">
+
+              <div className="flex items-center gap-3">
+
+                <RotateCw
+                  className="w-5 h-5 text-[var(--accent-earth)]"
+                  strokeWidth={1.8}
+                />
+
+                <span>Cadencia</span>
+
+              </div>
+
+              <span className="font-medium">
+                85 rpm
+              </span>
+
+            </div>
+
+            <div className="flex items-center justify-between py-3">
+
+              <div className="flex items-center gap-3">
+
+                <Ruler
+                  className="w-5 h-5 text-[var(--accent-earth)]"
+                  strokeWidth={1.8}
+                />
+
+                <span>Altura del sillín</span>
+
+              </div>
+
+              <span className="font-medium">
+                74 cm
+              </span>
+
+            </div>
+
+            <div className="mt-6 border-t border-white/5 pt-5">
+
+              <div className="flex gap-3">
+
+                <Sparkles
+                  className="w-5 h-5 text-[var(--accent-earth)] mt-1"
+                  strokeWidth={1.8}
+                />
+
+                <div>
+
+                  <p className="font-semibold mb-1">
+                    Recomendación Inteligente
+                  </p>
+
+                  <p className="text-sm text-zinc-400">
+                    Subir el sillín +1 cm mejorará la eficiencia del pedaleo y reducirá la fatiga.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
 
           <button
             onClick={() => setSubView("menu")}
-            className="bg-[var(--accent-earth)] text-black hover:opacity-90 transition-all duration-300 w-full py-3 rounded-2xl mt-6 font-medium"
+            className="mt-8 w-full py-4 rounded-2xl bg-[var(--accent-earth)] text-black font-medium hover:opacity-90 transition-all"
           >
             Volver
           </button>
+
         </div>
       )}
 
-      {/* --- VISTA 3: PANTALLA SUSCRIPCIÓN PRO --- */}
+      {/* ---------------- PRO ---------------- */}
+
       {subView === "pro" && (
         <div className="text-center">
-          <h2 className="text-2xl mb-4">🚀 resilence PRO</h2>
 
-          <div className="bg-[var(--bg-card)] p-4 rounded-2xl text-left mb-4 border border-white/5 space-y-2">
-            <p>📊 Historial completo de rendimiento</p>
-            <p>📈 Evolución y métricas avanzadas</p>
-            <p>🤖 Recomendaciones inteligentes</p>
-            <p>🚴 Optimización de bike fitting</p>
-            <p>☁️ Datos guardados en la nube</p>
+          <div className="flex items-center justify-center gap-3 mb-8">
+
+            <Crown
+              className="w-8 h-8 text-[var(--accent-earth)]"
+              strokeWidth={1.8}
+            />
+
+            <h2 className="text-3xl font-semibold tracking-tight">
+              Resilience PRO
+            </h2>
+
           </div>
 
-          <p className="text-xl font-bold mb-4 text-[var(--accent-earth)]">€9.99 / mes</p>
+          <div className="bg-[var(--bg-card)] rounded-3xl border border-white/5 p-6 text-left space-y-5">
+
+            <div className="flex items-center gap-3">
+
+              <TrendingUp
+                className="w-5 h-5 text-[var(--accent-earth)]"
+                strokeWidth={1.8}
+              />
+
+              <span>Historial completo de rendimiento</span>
+
+            </div>
+
+            <div className="flex items-center gap-3">
+
+              <BarChart3
+                className="w-5 h-5 text-[var(--accent-earth)]"
+                strokeWidth={1.8}
+              />
+
+              <span>Evolución y métricas avanzadas</span>
+
+            </div>
+
+            <div className="flex items-center gap-3">
+
+              <BrainCircuit
+                className="w-5 h-5 text-[var(--accent-earth)]"
+                strokeWidth={1.8}
+              />
+
+              <span>Recomendaciones inteligentes con IA</span>
+
+            </div>
+
+            <div className="flex items-center gap-3">
+
+              <Bike
+                className="w-5 h-5 text-[var(--accent-earth)]"
+                strokeWidth={1.8}
+              />
+
+              <span>Optimización de Bike Fitting</span>
+
+            </div>
+
+            <div className="flex items-center gap-3">
+
+              <Cloud
+                className="w-5 h-5 text-[var(--accent-earth)]"
+                strokeWidth={1.8}
+              />
+
+              <span>Datos sincronizados en la nube</span>
+
+            </div>
+
+          </div>
+
+          <div className="mt-8">
+
+            <p className="text-sm uppercase tracking-[0.25em] text-zinc-500">
+              Suscripción
+            </p>
+
+            <p className="text-4xl font-bold text-[var(--accent-earth)] mt-2">
+              €9.99
+            </p>
+
+            <p className="text-zinc-500 mt-1">
+              por mes
+            </p>
+
+          </div>
 
           <button
             onClick={onActivateProPayment}
-            className="bg-indigo-600 text-white w-full py-3 rounded-2xl font-medium hover:bg-indigo-700 transition-colors"
+            className="mt-8 w-full rounded-2xl py-4 bg-gradient-to-r from-[#8B6B32] via-[var(--accent-earth)] to-[#F0D7A1] text-black font-semibold hover:opacity-95 transition-all"
           >
-            Activar suscripción
+            Activar Suscripción
           </button>
 
           <button
             onClick={() => setSubView("menu")}
-            className="mt-4 text-sm text-zinc-400 block w-full text-center"
+            className="mt-6 flex items-center justify-center gap-2 w-full text-zinc-400 hover:text-white transition-colors"
           >
+
+            <ArrowLeft
+              className="w-4 h-4"
+            />
+
             Volver
+
           </button>
+
         </div>
       )}
+
     </div>
   );
 }
