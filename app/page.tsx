@@ -420,7 +420,7 @@ shadow-[0_0_30px_rgba(207,168,107,0.25)] py-5 rounded-2xl">
         "Mountain",
         "Gravel",
         "Ruta",
-        "resilence", chip integrado
+        "resilence", 
         "E-Bike"
       ].map((category) => (
 
