@@ -407,7 +407,7 @@ export default function resilenceapp({
             </p>
 
             <p className="text-4xl font-bold text-[var(--accent-earth)] mt-2">
-              €9.99
+              € x
             </p>
 
             <p className="text-zinc-500 mt-1">

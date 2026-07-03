@@ -420,7 +420,7 @@ shadow-[0_0_30px_rgba(207,168,107,0.25)] py-5 rounded-2xl">
         "Mountain",
         "Gravel",
         "Ruta",
-        "resilence",
+        "resilence", chip integrado
         "E-Bike"
       ].map((category) => (
 
@@ -486,10 +486,15 @@ duration-300
             key={bike.name} 
             bike={bike} 
             onClick={() => {
-              setSelected(bike);
-              setType("bike");
-              setView("bikeDetail");
-            }} 
+  setSelected(bike);
+  setType("bike");
+
+  if (bike.category === "resilence") {
+    setView("resilienceDetail");
+  } else {
+    setView("bikeDetail");
+  }
+}}
           />
 
       ))}
