@@ -37,7 +37,7 @@ const [bikeRegistered, setBikeRegistered] = useState(false);
 
   ctx.fillStyle = "#ffffff";
   ctx.font = "bold 34px Arial";
-ctx.fillText("ALA • resilence Certificate", canvas.width / 2, 60);
+ctx.fillText("ALA • Resilence Certificate", canvas.width / 2, 60);
 
   ctx.font = "18px Arial";
   ctx.fillText(`Modelo: ${selected?.name}`, 50, 140);
@@ -381,7 +381,7 @@ shadow-[0_0_30px_rgba(207,168,107,0.25)] py-5 rounded-2xl">
           </span>
 
           <span>
-            ALA resilence
+            ALA RESILENCE
           </span>
         </div>
 
@@ -419,7 +419,7 @@ shadow-[0_0_30px_rgba(207,168,107,0.25)] py-5 rounded-2xl">
         "Mountain",
         "Gravel",
         "Ruta",
-        "resilence",
+        "Resilence",
         "E-Bike"
       ].map((category) => (
 
@@ -1031,7 +1031,7 @@ duration-300
 {view === "pro" && (
   <div className="text-center">
 
-    <h2 className="text-2xl mb-4">🚀 resilence PRO</h2>
+    <h2 className="text-2xl mb-4">🚀 Resilence PRO</h2>
 
     <div className="bg-[var(--bg-card)] p-4 rounded-2xl text-left mb-4">
 

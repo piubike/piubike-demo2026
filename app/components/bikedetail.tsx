@@ -29,7 +29,7 @@ export default function BikeDetail({ selected, onBack, onViewTalla }: BikeDetail
       </h1>
 
       <p className="text-zinc-300 text-lg leading-relaxed mb-8">
-        {selected?.name?.includes("RESILIENCE")
+        {selected?.name?.includes("resilence")
           ? "La primera bicicleta inteligente de Alvarez Bicycle con chip integrado, conectividad avanzada y tecnología diseñada para el rendimiento moderno."
           : selected?.desc}
       </p>

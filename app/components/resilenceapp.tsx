@@ -20,19 +20,19 @@ import {
   ArrowLeft,
 } from "lucide-react";
 
-interface resilenceappProps {
+interface ResilenceappProps {
   selected: any;
   getSize: () => string;
   onBackHome: () => void;
   onActivateProPayment: () => void;
 }
 
-export default function resilenceApp({
+export default function Resilenceapp({
   selected,
   getSize,
   onBackHome,
   onActivateProPayment,
-}: resilenceappProps) {
+}: ResilenceappProps) {
   const [subView, setSubView] = useState("menu");
 
   return (
@@ -49,7 +49,7 @@ export default function resilenceApp({
               strokeWidth={1.8}
             />
             <h2 className="text-3xl font-semibold tracking-tight">
-              Mi App Resilience
+              Mi App Resilence
             </h2>
           </div>
 
@@ -171,7 +171,7 @@ export default function resilenceApp({
               />
 
               <span>
-                Resilience Analytics
+                Resilence Analytics
               </span>
 
             </button>
@@ -188,7 +188,7 @@ export default function resilenceApp({
               strokeWidth={2}
             />
 
-            Activar Resilience PRO
+            Activar Resilence PRO
 
           </button>
 
@@ -222,7 +222,7 @@ export default function resilenceApp({
             />
 
             <h2 className="text-3xl font-semibold tracking-tight">
-              Datos Resilience
+              Datos Resilence
             </h2>
 
           </div>
@@ -336,7 +336,7 @@ export default function resilenceApp({
             />
 
             <h2 className="text-3xl font-semibold tracking-tight">
-              Resilience PRO
+              Resilence PRO
             </h2>
 
           </div>

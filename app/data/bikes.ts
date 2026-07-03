@@ -54,7 +54,7 @@ export const bikes = [
     image: "https://images.unsplash.com/photo-1485965120184-e220f721d03e",
   },
   {
-    category: "Resilience",
+    category: "resilence",
     name: "ALA RESILIENCE",
     desc: "AI Bike con chip integrado y sistema inteligente",
     price: 12900,
