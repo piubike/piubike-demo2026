@@ -7,6 +7,7 @@ import BikeDetail from "@/app/components/bikedetail";
 import PaymentView from "@/app/components/paymentview";
 import ResilenceApp from "@/app/components/resilenceapp";
 
+
 export default function Home() {
   const [cryptoPercent, setCryptoPercent] = useState(0)
   const [view, setView] = useState("home");
@@ -419,7 +420,7 @@ shadow-[0_0_30px_rgba(207,168,107,0.25)] py-5 rounded-2xl">
         "Mountain",
         "Gravel",
         "Ruta",
-        "Resilence",
+        "resilence",
         "E-Bike"
       ].map((category) => (
 

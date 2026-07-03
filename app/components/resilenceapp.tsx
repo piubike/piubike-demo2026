@@ -20,19 +20,19 @@ import {
   ArrowLeft,
 } from "lucide-react";
 
-interface ResilenceappProps {
+interface resilenceappProps {
   selected: any;
   getSize: () => string;
   onBackHome: () => void;
   onActivateProPayment: () => void;
 }
 
-export default function Resilenceapp({
+export default function resilenceapp({
   selected,
   getSize,
   onBackHome,
   onActivateProPayment,
-}: ResilenceappProps) {
+}: resilenceappProps) {
   const [subView, setSubView] = useState("menu");
 
   return (
