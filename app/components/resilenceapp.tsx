@@ -298,7 +298,7 @@ export default function resilenceapp({
                 <div>
 
                   <p className="font-semibold mb-1">
-                    Recomendación Inteligente
+                    no se  Recomendación Inteligente
                   </p>
 
                   <p className="text-sm text-zinc-400">
