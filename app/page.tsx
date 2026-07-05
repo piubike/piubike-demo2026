@@ -11,6 +11,7 @@ import ResilenceApp from "@/app/components/resilenceapp";
 export default function Home() {
   const [cryptoPercent, setCryptoPercent] = useState(0)
   const [view, setView] = useState("home");
+  const [history, setHistory] = useState<string[]>([]);
   const [selected, setSelected] = useState<any>(null);
   const [type, setType] = useState("");
   const [variant, setVariant] = useState("");
@@ -25,6 +26,22 @@ const [invoiceNumber, setInvoiceNumber] = useState("");
 const [bikeRegistered, setBikeRegistered] = useState(false);
 
   const [fiatPercent, setFiatPercent] = useState(50);
+  const goToView = (nextView: string) => {
+  setHistory((prev) => [...prev, view]);
+  setView(nextView);
+};
+
+const goBack = () => {
+  if (history.length === 0) {
+    setView("home");
+    return;
+  }
+
+  const previous = history[history.length - 1];
+
+  setHistory((prev) => prev.slice(0, -1));
+  setView(previous);
+};
   const downloadNFT = () => {
   const canvas = document.createElement("canvas");
   canvas.width = 600;
@@ -100,7 +117,7 @@ const [cryptoType, setCryptoType] = useState("USDT");
     </button>
 
     <button
-      onClick={() => setView("home")}
+      onClick={goBack}
       className="mt-4 text-sm text-zinc-400"
     >
       Volver
@@ -127,17 +144,17 @@ const [cryptoType, setCryptoType] = useState("USDT");
    Iniciar sesión
 </button>
             <button
-  onClick={() => setView("bikeMenu")}
+  onClick={() => goToView("bikeMenu")}
   className="bg-[var(--bg-card)] py-5 rounded-2xl"
 >
   Bicicletas
 </button>
 
-            <button onClick={() => setView("experiences")} className="bg-[var(--bg-card)] py-5 rounded-2xl">
+            <button onClick={() =>  goToView("experiences")} className="bg-[var(--bg-card)] py-5 rounded-2xl">
                Experiencias
             </button>
 
-            <button onClick={() => setView("resApp")} className="bg-[var(--accent-earth)]
+            <button onClick={() => goToView("resApp")} className="bg-[var(--accent-earth)]
 shadow-[0_0_30px_rgba(207,168,107,0.25)] py-5 rounded-2xl">
                Mi App resilence
             </button>
@@ -156,7 +173,7 @@ shadow-[0_0_30px_rgba(207,168,107,0.25)] py-5 rounded-2xl">
     <div className="space-y-4">
 
       <button
-        onClick={() => setView("bikeCategories")}
+        onClick={() => goToView("bikeCategories")}
         className="
         w-full
         bg-[var(--bg-card)]
@@ -177,7 +194,7 @@ shadow-[0_0_30px_rgba(207,168,107,0.25)] py-5 rounded-2xl">
       </button>
 
       <button
-        onClick={() => setView("addBike")}
+        onClick={() => goToView("addBike")}
         className="
         w-full
         bg-[var(--bg-card)]
@@ -200,7 +217,7 @@ shadow-[0_0_30px_rgba(207,168,107,0.25)] py-5 rounded-2xl">
     </div>
 
     <button
-      onClick={() => setView("home")}
+      onClick={goBack}
       className="mt-8 text-[var(--text-secondary)]"
     >
       Volver
@@ -208,7 +225,7 @@ shadow-[0_0_30px_rgba(207,168,107,0.25)] py-5 rounded-2xl">
 
   </div>
 )}
-{/* ADD BIKE */}
+
 {/* ADD BIKE */}
 {view === "addBike" && (
   <div className="min-h-screen flex flex-col justify-center">
@@ -394,11 +411,11 @@ shadow-[0_0_30px_rgba(207,168,107,0.25)] py-5 rounded-2xl">
 )}
     {/* BACK */}
     <button
-      onClick={() => setView("bikeMenu")}
-      className="mt-8 text-[var(--text-secondary)]"
-    >
-      Volver
-    </button>
+  onClick={goBack}
+  className="mt-8 text-[var(--text-secondary)]"
+>
+  ← Volver
+</button>
 
   </div>
 )}
@@ -428,7 +445,7 @@ shadow-[0_0_30px_rgba(207,168,107,0.25)] py-5 rounded-2xl">
           key={category}
           onClick={() => {
   setSelectedCategory(category);
-  setView("shop");
+  goToView("shop");
 }}
           className="
           w-full
@@ -456,11 +473,11 @@ duration-300
     </div>
 
     <button
-      onClick={() => setView("bikeMenu")}
-      className="mt-8 text-[var(--text-secondary)]"
-    >
-      Volver
-    </button>
+  onClick={goBack}
+  className="mt-8 text-[var(--text-secondary)]"
+>
+  ← Volver
+</button>
 
   </div>
 )}
@@ -482,28 +499,44 @@ duration-300
         .filter((bike) => bike.category === selectedCategory)
         .map((bike) => (
 
-          <BikeCard 
-            key={bike.name} 
-            bike={bike} 
+          <BikeCard
+            key={bike.name}
+            bike={bike}
             onClick={() => {
-  setSelected(bike);
-  setType("bike");
+              setSelected(bike);
+              setType("bike");
 
-  if (bike.category === "resilence") {
-    setView("resilienceDetail");
-  } else {
-    setView("bikeDetail");
-  }
-}}
+              if (bike.category === "resilence") {
+                goToView("resilienceDetail");
+              } else {
+                goToView("bikeDetail");
+              }
+            }}
           />
 
-      ))}
+        ))}
 
     </div>
 
+    {/* BOTÓN VOLVER */}
+    <button
+      onClick={goBack}
+      className="
+        mt-8
+        w-full
+        border border-white/10
+        rounded-2xl
+        py-4
+        text-[var(--text-secondary)]
+        hover:bg-white/5
+        transition-all
+      "
+    >
+      ← Volver
+    </button>
+
   </div>
 )}
-
       {/* EXPERIENCES */}
       {view === "experiences" && (
         <>
@@ -515,7 +548,7 @@ duration-300
               onClick={() => {
                 setSelected(exp);
                 setType("exp");
-                setView("detail");
+                goToView("detail");
               }}
               className="bg-[var(--bg-card)] p-4 rounded-2xl mb-4"
             >
@@ -524,16 +557,33 @@ duration-300
               <p>{exp.desc}</p>
               <p className="text-sm font-bold">€{exp.price}</p>
             </div>
-          ))}
-        </>
-      )}
+                ))}
+
+      <button
+  onClick={goBack}
+  className="
+    mt-8
+    w-full
+    border border-white/10
+    rounded-2xl
+    py-4
+    text-[var(--text-secondary)]
+    hover:bg-white/5
+    transition-all
+  "
+>
+  ← Volver
+</button>
+
+    </>
+)}
 
 {/* BIKE DETAIL */}
 {view === "bikeDetail" && (
-  <BikeDetail 
-    selected={selected} 
-    onBack={() => setView("shop")} 
-    onViewTalla={() => setView("resData")} 
+  <BikeDetail
+    selected={selected}
+    onBack={goBack}
+    onViewTalla={() => goToView("resData")}
   />
 )}
 {/* RES DATA */}
@@ -542,11 +592,11 @@ duration-300
 
     {/* VOLVER */}
     <button
-      onClick={() => setView("shop")}
-      className="mb-6 text-sm text-zinc-400"
-    >
-      ← Volver
-    </button>
+  onClick={goBack}
+  className="mt-8 text-[var(--text-secondary)]"
+>
+  ← Volver
+</button>
 
     <h2 className="text-3xl font-semibold mb-2">
       Averigua la talla de tu bicicleta 
@@ -661,11 +711,11 @@ duration-300
 
           <>
   <button
-    onClick={() => setView("resData")}
-    className="mb-6 text-sm text-zinc-400"
-  >
-    ← Volver
-  </button>
+  onClick={goBack}
+  className="mt-8 text-[var(--text-secondary)]"
+>
+  ← Volver
+</button>
 
   <h2 className="text-3xl font-semibold mb-2">
     {selected?.name}
@@ -801,11 +851,12 @@ duration-300
 
     {/* BACK */}
     <button
-      onClick={() => setView("home")}
-      className="flex items-center text-zinc-400 text-sm mb-8"
-    >
-      ← Volver
-    </button>
+  onClick={goBack}
+  className="mt-8 text-[var(--text-secondary)]"
+>
+  ← Volver
+</button>
+   
 
     {/* SUCCESS */}
     <div className="text-center mb-10">
@@ -1062,11 +1113,11 @@ duration-300
 </button>
 
     <button
-      onClick={() => setView("resApp")}
-      className="mt-4 text-sm text-zinc-400"
-    >
-      Volver
-    </button>
+  onClick={goBack}
+  className="mt-8 text-[var(--text-secondary)]"
+>
+  ← Volver
+</button>
 
   </div>
 )}
